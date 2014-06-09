@@ -13,7 +13,7 @@ def uniq_subs (string)
 	answer.keys
 end
 
-p uniq_subs ('mom')
+# p uniq_subs ('mom')
 
 def max_sub_sum(arr)
 	max_sum = 0
@@ -36,7 +36,8 @@ def max_sub_sum(arr)
 	return max_sub_array
 end
 
-p max_sub_sum([3, 1, -4, 7, 3, -3, 2, -4])
+# p max_sub_sum([3, 1, -4, 7, 3, -3, 2, -4])
+
 
 # SUBSET B
 def silly_years (year)
@@ -63,11 +64,19 @@ def silly_years (year)
 	return answer
 end
 
+# p silly_years(1989)
+
 def pair_sum (array, target)
 	answer = []
+
+	(0..array.length-1).each do |i|
+		(i..array.length-1).each do |j|
+			answer.push([array[i], array[j]]) if array[i] + array[j] == target
+		end
+	end
+
+	return answer
 end
 
-
-
-
+# p pair_sum([-1, 3, -2, 4, -3, 1], 0)
 
