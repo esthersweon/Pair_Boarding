@@ -64,19 +64,39 @@ def silly_years (year)
 	return answer
 end
 
-# p silly_years(1989)
+p silly_years(1989)
 
-def pair_sum (array, target)
-	answer = []
 
-	(0..array.length-1).each do |i|
-		(i..array.length-1).each do |j|
-			answer.push([array[i], array[j]]) if array[i] + array[j] == target
-		end
-	end
+require 'set'
 
-	return answer
+def pair_sum(arr, k)
+  answer = Set.new
+
+  arr.each do |num|
+    target = k - num
+
+    if arr.include?(target)
+    	pair_to_add = [[num, target].min, [num, target].max]
+    	answer.add(pair_to_add) unless answer.include?(pair_to_add)
+    end
+
+  end
+
+  answer
 end
 
-# p pair_sum([-1, 3, -2, 4, -3, 1], 0)
+p pair_sum([1, 2, -1, -1, 1, -3, -2], -1)
 
+# def pair_sum (array, target)
+# 	answer = []
+
+# 	(0..array.length-1).each do |i|
+# 		(i..array.length-1).each do |j|
+# 			answer.push([array[i], array[j]]) if array[i] + array[j] == target
+# 		end
+# 	end
+
+# 	return answer
+# end
+
+# # p pair_sum([-1, 3, -2, 4, -3, 1], 0)
