@@ -49,26 +49,42 @@ end
 
 puts merge_sort([5, 3, 4, 7, 2, 1])
 
-SECTION B
+# SECTION B
+
+# def binary_search(array, target)
+# 	return nil if array.count == 0 
+
+# 	midpoint = array.length/2
+
+# 	if target < array[midpoint]
+# 		binary_search(array.take(midpoint), target)
+# 		# p array.take(midpoint)
+# 	elsif target = array[midpoint]
+# 		midpoint
+# 	else
+# 		answer = binary_search(array.drop(midpoint + 1), target)
+# 		# p array.drop(midpoint + 1)
+# 		answer.nil? ? nil : (midpoint + 1) + answer
+# 	end
+# end
+
+# puts binary_search([1, 2, 3, 4, 5, 6, 7], 3)
 
 def binary_search(array, target)
-	return nil if array.count == 0 
+  return nil if array.count == 0
 
-	midpoint = array.length/2
-
-	if target < array[midpoint]
-		binary_search(array.take(midpoint), target)
-		# p array.take(midpoint)
-	elsif target = array[midpoint]
-		midpoint
-	else
-		answer = binary_search(array.drop(midpoint + 1), target)
-		# p array.drop(midpoint + 1)
-		answer.nil? ? nil : (midpoint + 1) + answer
-	end
+  midpoint = array.length / 2
+  case target <=> array[midpoint]
+  when -1
+    binary_search(array.take(midpoint), target)
+  when 0
+    midpoint
+  when 1
+    answer =
+      binary_search(array.drop(midpoint + 1), target)
+    subproblem_answer.nil? ? nil : (midpoint + 1) + answer
+  end
 end
-
-puts binary_search([1, 2, 3, 4, 5, 6, 7], 3)
 
 
 def productify(array)
