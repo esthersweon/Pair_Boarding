@@ -29,6 +29,6 @@ def cyclic?(first_link)
   set = Set.new
   
   current_link = first_link
-  while å
+  while
   
 end
